@@ -18,8 +18,8 @@ struct ContentView: View {
                 .padding(.top, 24)
             
             ScrollView {
-                ForEach(responses) {
-                    response in Text(response.text)
+                ForEach(responses) { response in
+                    ResponseView(response: response)
                 }
             }
         }
