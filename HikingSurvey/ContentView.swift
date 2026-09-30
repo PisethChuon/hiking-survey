@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @FocusState private var textFieldIsFocused: Bool
     @State var responses: [Response] = []
     @State private var reponseText = ""
     var scorer = Scorer()
@@ -37,8 +38,12 @@ struct ContentView: View {
                 Button("Done") {
                     guard !reponseText.isEmpty else { return }
                     saveResponse(text: reponseText)
+                    reponseText = ""
+                    textFieldIsFocused = false
                 }
+                .padding(.horizontal, 4)
             }
+            .padding(.bottom, 8)
         }
         .onAppear {
             for response in Response.sampleResponse {
