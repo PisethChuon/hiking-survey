@@ -10,8 +10,8 @@ import NaturalLanguage
 
 class Scorer {
     let tagger = NLTagger(tagSchemes: [.sentimentScore])
-    
-    func score (_ text: String) -> Double {
+
+    func score(_ text: String) -> Double {
         var sentimentScore = 0.0
         tagger.string = text
         tagger.enumerateTags(
@@ -24,6 +24,7 @@ class Scorer {
                     sentimentScore = score
                     return true
                 }
+
                 return false
             }
         return sentimentScore

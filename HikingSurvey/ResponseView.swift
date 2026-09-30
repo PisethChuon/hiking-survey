@@ -15,9 +15,10 @@ struct ResponseView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(16)
             .background(RoundedRectangle(cornerRadius: 8).fill(.white))
+        Text(response.score, format: .number.rounded(increment: 0.1))
     }
 }
 
 #Preview {
-    ResponseView(response: Response(text: "The outdoors is my happy place, so give me a trail and some boots and I feel great!"))
+    ResponseView(response: Response(text: "The outdoors is my happy place, so give me a trail and some boots and I feel great!", score: 1.0))
 }
